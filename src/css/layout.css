@@ -1,0 +1,49 @@
+.layout {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.layout .layout-header {
+  height: 50px;
+  line-height: 50px;
+  display: inline-block;
+}
+.layout .layout-header .layout-title {
+  color: #ffffff;
+  font-size: 18px;
+}
+.layout .layout-header .layout-login {
+  position: absolute;
+  right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 300px;
+}
+.layout .layut-sider {
+  height: 100%;
+}
+.layout .layout-content {
+  position: relative;
+  overflow: hidden;
+}
+.layout .layout-content .layout-breadcrumb {
+  position: absolute;
+  padding: 5px 5px;
+}
+.layout .layout-content .content {
+  padding-top: 25px;
+  background-color: #ffffff;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.layout .layout-footer {
+  padding: 5px 10px;
+  text-align: center;
+}
+.layout .ant-menu-submenu-title {
+  padding-left: 12px !important;
+}
