@@ -5,13 +5,16 @@
  */
 
 
-import reqwest from 'reqwest';
-import Interface from '../../src/interface/index.js';
-import React from 'react';
-import ClRouter from '../router/router.jsx';
+import { CLComponent } from '../../src/lib/component/index';
+import { Interface } from '../../src/lib/config/index';
+import ClRouter from '../../src/router/ClRouter.jsx';
 import CLMenu from './sider.jsx';
+
+import reqwest from 'reqwest';
+import React from 'react';
+
 import { Layout, Menu, Breadcrumb, Icon, Dropdown, Col, Row, message} from 'antd';
-import CLComponent from '../../src/lib/component/CLComponent.jsx';
+
 
 const {contentType, logout} = Interface;
 const { Header, Content, Sider, Footer } = Layout;

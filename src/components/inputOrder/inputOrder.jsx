@@ -1,9 +1,9 @@
 import React from 'react';
-import Interface from '../../../src/interface/index.js';
 import QueueAnim from 'rc-queue-anim';
-import CLComponent from '../../../src/lib/component/CLComponent.jsx';
+import { CLComponent } from '../../../src/lib/component/index';
 import CLList from '../../../src/lib/component/CLList.jsx';
-import CLAnimate from '../../../src/lib/clAnimate.js';
+import { CLAnimate } from '../../../src/lib/tools/index';
+import { Interface } from '../../../src/lib/config/index';
 import _ from 'lodash';
 
 class InputOrder extends CLComponent {
@@ -32,8 +32,6 @@ class InputOrder extends CLComponent {
   getFormFields (fields) {
     let search = {};
     _.map(fields, function (doc, index) {
-      console.log(doc, "doc")
-      console.log(index, "index")
       if (doc) {
         if (typeof(doc) === 'object') { //判断为时间对象
           search[index] = doc.format("YYYY-MM-DD HH:mm");

@@ -1,11 +1,11 @@
 
 import { Menu, Icon, Switch } from 'antd';
-const SubMenu = Menu.SubMenu;
 import React from 'react';
-import menuConfig from '../lib/menu.js';
-import CLComponent from '../../src/lib/component/CLComponent.jsx';
+import { MenuConfig } from '../lib/config/';
+import {CLComponent} from '../../src/lib/component/';
 import { Link } from 'react-router-dom'
 
+const SubMenu = Menu.SubMenu;
 
 class CLMenu extends CLComponent {
   state = {
@@ -44,7 +44,7 @@ class CLMenu extends CLComponent {
           mode="inline"
         >
           {
-            menuConfig.map( function (item, index) {
+            MenuConfig.map( function (item, index) {
               return (
                 <Menu.SubMenu key= {item.role + index} title={<span><Icon type="mail" /><span>{item.name}</span></span>}>
                 {

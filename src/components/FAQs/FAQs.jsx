@@ -1,14 +1,14 @@
 import React from 'react';
-import Interface from '../../../src/interface/index.js';
 import { Collapse } from 'antd';
-import CLComponent from '../../../src/lib/component/CLComponent.jsx';
-import Lanuage from '../../../src/lib/common.js';
 import QueueAnim from 'rc-queue-anim';
-import CLAnimate from '../../../src/lib/clAnimate.js';
+import { CLComponent } from '../../../src/lib/component/index';
+import { Lanuage, Interface } from '../../../src/lib/config/index';
 
+import { CLAnimate } from '../../../src/lib/tools/index';
 
 let {FAQS} = Lanuage.en;
 const Panel = Collapse.Panel;
+
 class FAQs extends CLComponent {
   state = {
     data: FAQS

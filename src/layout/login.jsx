@@ -1,10 +1,11 @@
 import React from 'react';
-import Interface from '../../src/interface/index.js';
 import _ from 'lodash';
 import reqwest from 'reqwest';
-
-import CLComponent from '../../src/lib/component/CLComponent.jsx';
 import { Form, Icon, Input, Button, Checkbox, Col, Row, message} from 'antd';
+
+import { Interface } from '../../src/lib/config/index';
+import { CLComponent } from '../../src/lib/component/index';
+
 const FormItem = Form.Item;
 const {dologin, contentType, getOperateResources} = Interface;
 
@@ -20,7 +21,7 @@ class Login extends CLComponent {
     ]);
   }
 
-  handleSubmit = (e) => { /*待修改方法 跳转方法比较low*/
+  handleSubmit = (e) => {
     e.preventDefault();
     let that = this;
 

@@ -1,6 +1,7 @@
 import React from 'react';
-import CLComponent from '../../../src/lib/component/CLComponent.jsx';
+import CLComponent from './CLComponent.jsx';
 import { Row, Col, Card, Icon, Modal} from 'antd';
+
 const gridStyle = {
   width: '33.33%',
   textAlign: 'left',

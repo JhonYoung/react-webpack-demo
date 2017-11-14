@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import CLComponent from '../../../src/lib/component/CLComponent.jsx';
+import CLComponent from './CLComponent.jsx';
 import { Table, Form, Row, Col, Input, Button, Icon, InputNumber, Select, DatePicker, RangePicker} from 'antd';
 const FormItem = Form.Item;
 

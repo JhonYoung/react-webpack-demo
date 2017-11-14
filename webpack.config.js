@@ -1,11 +1,13 @@
 var webpack = require('webpack');
 var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 var UglifyJsPlugin = require("webpack/lib/optimize/UglifyJsPlugin");
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 module.exports = {
     entry: {
        bundle: './src/app.js',
        vendor: ["react", "react-dom", 'react-router', 'react-router-dom', "rc-queue-anim"],
-       tools: ["lodash", "reqwest", "js-md5"]
+       tools: ["lodash", "reqwest", "js-md5", "g2", "g2-react"]
     },
     output: {
         path: __dirname,
@@ -18,19 +20,21 @@ module.exports = {
             minChunks: 2
         }),
 
-        new UglifyJsPlugin({ //生产环境压缩代码
-            mangle: {
-                except: ['$super', '$', 'exports', 'require', 'module', '_']
-            },
-            compress: {
-                warnings: false
-            },
-            output: {
-                comments: false,
-            }
-        })
+        new ExtractTextPlugin("style.css"),
+
+        // new UglifyJsPlugin({ //生产环境压缩代码
+        //     mangle: {
+        //         except: ['$super', '$', 'exports', 'require', 'module', '_']
+        //     },
+        //     compress: {
+        //         warnings: false
+        //     },
+        //     output: {
+        //         comments: false,
+        //     }
+        // })
     ],
-    devtool: 'cheap-module-source-map',
+    // devtool: 'cheap-module-source-map',
     
     module: {
         rules: [
@@ -48,7 +52,7 @@ module.exports = {
             }, 
             {
                 test: /\.css$/,
-                loader: "style-loader!css-loader"
+                loader:  ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
             },
             {
                 test: /\.(png|jpg|woff|svg|eot|ttf)$/,

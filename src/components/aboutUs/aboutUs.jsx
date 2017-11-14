@@ -1,9 +1,9 @@
 import React from 'react';
-import Interface from '../../../src/interface/index.js';
+// import Interface from '../../../src/interface/index.js';
 import { Collapse } from 'antd';
-import CLComponent from '../../../src/lib/component/CLComponent.jsx';
-import Lanuage from '../../../src/lib/common.js';
-import CLAnimate from '../../../src/lib/clAnimate.js';
+import { CLComponent } from '../../../src/lib/component/index';
+import { CLAnimate } from '../../../src/lib/tools/index';
+import { Lanuage, Interface } from '../../../src/lib/config/index';
 import QueueAnim from 'rc-queue-anim';
 
 let {Aboutus} = Lanuage.en;

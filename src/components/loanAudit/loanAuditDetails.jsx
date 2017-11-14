@@ -1,10 +1,9 @@
 import React from 'react';
-import Interface from '../../../src/interface/index.js';
 import QueueAnim from 'rc-queue-anim';
-import CLComponent from '../../../src/lib/component/CLComponent.jsx';
+import { Interface } from '../../../src/lib/config/index';
+import {CLComponent} from '../../../src/lib/component/index';
 import CLBlockList from '../../../src/lib/component/CLBlockList.jsx';
-import CLAnimate from '../../../src/lib/clAnimate.js';
-
+import { CLAnimate } from '../../../src/lib/tools/index';
 import { Button, Row, Col, Card, Table} from 'antd';
 
 
@@ -28,6 +27,7 @@ class LoanAuditDetails extends CLComponent {
  
   renderBody() {
     const { selectedRowKeys } = this.state;
+    // this.props.match.params
     let that = this;
     let data = {
       UserInfo: [

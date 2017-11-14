@@ -1,9 +1,9 @@
 import React from 'react';
-import Interface from '../../../src/interface/index.js';
 import QueueAnim from 'rc-queue-anim';
-import CLComponent from '../../../src/lib/component/CLComponent.jsx';
+import {CLComponent} from '../../../src/lib/component/index';
 import CLList from '../../../src/lib/component/CLList.jsx';
-import CLAnimate from '../../../src/lib/clAnimate.js';
+import { CLAnimate } from '../../../src/lib/tools/index';
+import { Interface } from '../../../src/lib/config/index';
 
 import _ from 'lodash';
 import { Button } from 'antd';
@@ -18,6 +18,7 @@ class LoanAudit extends CLComponent {
     },
     tableLoading: false
   }
+
   constructor (props) {
     super(props);
     this.bindCtx([
@@ -425,7 +426,7 @@ class LoanAudit extends CLComponent {
     )
   }
 
-  render () {
+  render (data) {
     return (
       <QueueAnim className="animate-content" type={this.state.aniType}>
         {this.state.showBlock ? [ this.renderBody() ] : null}

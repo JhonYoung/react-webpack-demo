@@ -7,9 +7,10 @@ import React from 'react';
 import { HashRouter as Router, Route} from 'react-router-dom';
 import Login from './login.jsx';
 import Content from './content.jsx';
-import CLComponent from '../../src/lib/component/CLComponent.jsx';
+import {CLComponent} from '../../src/lib/component/index';
 
 class Layout extends CLComponent {
+
   render () {
     return (
       <Router>
