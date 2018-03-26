@@ -38,7 +38,7 @@ let checkAuth = (pathname) => {
   } else {
     auth = false;
   }
-  return auth;
+  return true;
 }
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -73,5 +73,3 @@ export default class ClRouter extends React.Component {
     );
   }
 }
-
- // <PrivateRoute  key={component.name} path={`/uplending/loanauditdetails/123`} component={component}/>

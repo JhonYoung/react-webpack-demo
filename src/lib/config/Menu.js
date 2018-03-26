@@ -1,44 +1,44 @@
 /*菜单配置js*/
 
 const MenuConfig = [
-  {
-    level: 0,
-    name: "System Management",
-    index: 1,
-    role: "SM",
-    path: 'home',
-    icon: "home",
-    children: [
-      {
-        level: 1,
-        name: "pepple management",
-        path: '/uplending/home',
-        index: 1,
-        role: "loan audit",
-      },
-      {
-        level: 1,
-        name: "auth role management",
-        path: 'sm-arma',
-        index: 2,
-        role: "auth role management",
-      },
-      {
-        level: 1,
-        name: "resources management",
-        path: 'sm-rema',
-        index: 3,
-        role: "resources management",
-      },
-      {
-        level: 1,
-        name: "password modify",
-        path: 'sm-pamo,',
-        index: 4,
-        role: "password modify",
-      },
-    ]
-  },
+  // {
+  //   level: 0,
+  //   name: "System Management",
+  //   index: 1,
+  //   role: "SM",
+  //   path: 'home',
+  //   icon: "home",
+  //   children: [
+  //     {
+  //       level: 1,
+  //       name: "pepple management",
+  //       path: '/uplending/home',
+  //       index: 1,
+  //       role: "loan audit",
+  //     },
+  //     {
+  //       level: 1,
+  //       name: "auth role management",
+  //       path: 'sm-arma',
+  //       index: 2,
+  //       role: "auth role management",
+  //     },
+  //     {
+  //       level: 1,
+  //       name: "resources management",
+  //       path: 'sm-rema',
+  //       index: 3,
+  //       role: "resources management",
+  //     },
+  //     {
+  //       level: 1,
+  //       name: "password modify",
+  //       path: 'sm-pamo,',
+  //       index: 4,
+  //       role: "password modify",
+  //     },
+  //   ]
+  // },
   {
     level: 0,
     name: "Operation Management",

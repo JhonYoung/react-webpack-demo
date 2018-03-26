@@ -3,14 +3,25 @@ var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 var UglifyJsPlugin = require("webpack/lib/optimize/UglifyJsPlugin");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+
+//将css文件， less文件单独导出
+const extractLess = new ExtractTextPlugin({
+    filename: '[name].less.css',
+});
+
+const extractCss = new ExtractTextPlugin({
+    filename: '[name].css.css',
+});
+
+
 module.exports = {
     entry: {
        bundle: './src/app.js',
        vendor: ["react", "react-dom", 'react-router', 'react-router-dom', "rc-queue-anim"],
-       tools: ["lodash", "reqwest", "js-md5", "g2", "g2-react"]
+       tools: ["lodash", "reqwest", "js-md5"]
     },
     output: {
-        path: __dirname,
+        path: `${__dirname}/build/`,
         filename: "[name].js"
     },
 
@@ -20,7 +31,8 @@ module.exports = {
             minChunks: 2
         }),
 
-        new ExtractTextPlugin("style.css"),
+        extractCss,
+        extractLess,
 
         // new UglifyJsPlugin({ //生产环境压缩代码
         //     mangle: {
@@ -34,8 +46,6 @@ module.exports = {
         //     }
         // })
     ],
-    // devtool: 'cheap-module-source-map',
-    
     module: {
         rules: [
             {
@@ -52,8 +62,39 @@ module.exports = {
             }, 
             {
                 test: /\.css$/,
-                loader:  ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
+                loader:  extractCss.extract({ 
+                    fallback: 'style-loader', 
+                    use: 'css-loader' 
+                })
             },
+            {
+                test: /\.(less)$/,
+                use: extractLess.extract({
+                    use: [
+                        {
+                            loader: 'css-loader'
+                        },
+                        {
+                            loader: "less-loader"
+                        }
+                    ],
+                    fallback: 'style-loader'
+                })
+            },
+            // {
+            //     test: /\.css$/,
+            //     use: [ 'style-loader', 'css-loader' ]
+            // },
+            // {
+            //     test: /\.less$/,
+            //     use: [{
+            //         loader: "style-loader" // creates style nodes from JS strings
+            //     }, {
+            //         loader: "css-loader" // translates CSS into CommonJS
+            //     }, {
+            //         loader: "less-loader" // compiles Less to CSS
+            //     }]
+            // },
             {
                 test: /\.(png|jpg|woff|svg|eot|ttf)$/,
                 exclude: /node_modules/,
@@ -62,9 +103,6 @@ module.exports = {
         ],
     },
     devServer: {
-        // host: "h5.api.cashlending.com",
-        // host: "192.168.11.220",
-        // host: "192.168.11.220",
         host: "localhost",
         port: 8080,
         contentBase: './',

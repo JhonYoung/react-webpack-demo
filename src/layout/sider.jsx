@@ -15,9 +15,6 @@ class CLMenu extends CLComponent {
 
   constructor (props) {
     super(props);
-    // this.bindCtx([
-    //   "renderBody"
-    // ]);
   }
 
   handleClick = (e) => {
@@ -27,10 +24,10 @@ class CLMenu extends CLComponent {
   }
 
   render() {
-    let roles = JSON.parse(sessionStorage.getItem("roles"));
-    if (!roles || !roles.length) {
-      return '';
-    }
+    let roles = JSON.parse(sessionStorage.getItem("roles")) || []; //权限检查
+    // if (!roles || !roles.length) {
+    //   return '';
+    // }
 
     
     return (
@@ -50,6 +47,7 @@ class CLMenu extends CLComponent {
                 {
                   item.children.map( function (subItem, index) {
                     let flag = roles.indexOf(subItem.role); //根据权限显示或隐藏菜单
+                    flag = 1;
                     if (flag > -1) {
                       return (<Menu.Item key={subItem.role + index}>
                         <Link to={subItem.path}>{subItem.name}</Link>
@@ -63,7 +61,6 @@ class CLMenu extends CLComponent {
               )
             })
           }
-         
         </Menu>
       </div>
     );

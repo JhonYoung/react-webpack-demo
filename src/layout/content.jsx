@@ -70,7 +70,7 @@ class CLContent extends CLComponent {
       <Layout className="layout">
         <Header className="layout-header">
         <Row>
-          <Col  span={21} className="layout-title"> Cashlending Back-end Management System </Col>
+          <Col  span={21} className="layout-title">admin manager</Col>
           <Col span={3}>
             <Dropdown overlay={menu}
               onVisibleChange={this.handleVisibleChange}
@@ -96,7 +96,7 @@ class CLContent extends CLComponent {
             <ClRouter/>
           </Content>
         </Layout>
-        <Footer className="layout-footer">www.cashlending.cn © 2017-2020</Footer>
+        <Footer className="layout-footer">www.jhonyoung.cn © 2017-2020</Footer>
       </Layout>
     )
   }
